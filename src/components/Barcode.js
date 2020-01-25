@@ -23,8 +23,8 @@ export default function Barcode({price, productType}) {
   }
   const productPrice = currency(price, currencyDefaults);
 
-  return <div style={{width: "80mm"}} className="flex flex-col items-center">
+  return <div style={{width: "60mm", height: "29mm"}} className="flex flex-col items-center">
     <PluginBarcode format="ean13" font="OCRB" value={generateEAN(productType, price)}/>
-    <p className="text-2xl text-center mt-0">Cena: {productPrice.format()}</p>
+    <p className="text-xl text-center mt-0">Cena: {productPrice.format()}</p>
   </div>;
 }

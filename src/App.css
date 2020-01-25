@@ -1,3 +1,22 @@
+body {
+    margin: 0;
+}
+
+@page {
+    size: 60mm 29mm;
+    margin: 0;
+}
+
+@page :left {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+@page :right {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 @media print {
     .no-print, .no-print * {
         display: none !important;
