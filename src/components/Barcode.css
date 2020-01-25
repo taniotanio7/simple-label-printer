@@ -1,0 +1,5 @@
+@font-face {
+    font-family: "OCRB";
+    src: url("../font/OCR-B.woff") format("woff"),
+    url("../font/OCR-B.ttf") format("ttf");
+}
