@@ -64,12 +64,15 @@ export default function InputForm({price, setPrice, productType, setProductType}
           </div>
         </div>
       </div>
-      <button
-        type="submit"
-        className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Drukuj
-      </button>
+      <div className="flex justify-center items-center">
+        <button
+          type="submit"
+          className="shadow-md hover:shadow-xl mt-5 bg-blue-500 disabled:bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:cursor-not-allowed"
+          disabled={!price && !productType}
+        >
+          Drukuj
+        </button>
+      </div>
     </form>
   );
 }
