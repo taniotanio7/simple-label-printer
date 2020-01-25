@@ -1,8 +1,8 @@
 import React from "react";
 import PluginBarcode from "react-barcode";
-import "./Barcode.css"
+import "./Barcode.css";
 import {currencyDefaults, productCodes} from "../globals";
-import currency from "currency.js"
+import currency from "currency.js";
 
 function generateEAN(productType, price) {
   const productPrice = currency(price, currencyDefaults);
@@ -19,12 +19,24 @@ function generateEAN(productType, price) {
 
 export default function Barcode({price, productType}) {
   if (!price || !productType) {
-    return <p className="text-3xl">Wprowadź wszystkie dane</p>
+    return (
+      <div className="flex flex-col items-center justify-center w-full h-20">
+        <p className="text-2xl no-print text-gray-700">
+          Wprowadź wszystkie dane
+        </p>
+      </div>
+    );
   }
   const productPrice = currency(price, currencyDefaults);
 
-  return <div style={{width: "60mm", height: "29mm"}} className="flex flex-col items-center">
-    <PluginBarcode format="ean13" font="OCRB" value={generateEAN(productType, price)}/>
-    <p className="text-xl text-center mt-0">Cena: {productPrice.format()}</p>
-  </div>;
+  return (
+    <div style={{height: "33.5mm"}} className="flex flex-col items-center">
+      <PluginBarcode
+        format="ean13"
+        font="OCRB"
+        value={generateEAN(productType, price)}
+      />
+      <p className="text-xl text-center mt-0">Cena: {productPrice.format()}</p>
+    </div>
+  );
 }
